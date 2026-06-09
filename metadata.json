@@ -1,0 +1,6 @@
+{
+  "name": "Freelance Video Editor Tracker",
+  "description": "An advanced, high-fidelity productivity dashboard, video project tracker, budget planner, and gamified XP engine designed specifically for freelance video editors, themed after cyberpunk mechanical terminals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
