@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db, seedDatabaseIfEmpty } from '../db';
+import { db, resetDatabaseToCleanState } from '../db';
 import { useToast } from './ToastContext';
 import { RefreshCw, Sparkles, Terminal, Bell } from 'lucide-react';
 
@@ -75,12 +75,9 @@ export function CommandMenu({
     }
 
     try {
-      await db.delete();
-      await db.open();
-      await seedDatabaseIfEmpty();
-      showToast("Dossier arrays completely purged. Core firmware re-seeded.", 'success');
+      await resetDatabaseToCleanState();
+      showToast("Database reset complete. Level baseline restored to 0.", 'success');
       onClose();
-      window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -158,7 +155,7 @@ export function CommandMenu({
                 <div className="text-xs font-bold text-[#c4ff0e] flex items-center gap-1.5 uppercase">
                   <Sparkles className="h-3.5 w-3.5" /> Inject +40 XP
                 </div>
-                <div className="text-[9px] text-neutral-500 font-mono lowercase mt-1 group-hover:text-neutral-400">test level gains and confetti engine</div>
+                <div className="text-[9px] text-neutral-500 font-mono lowercase mt-1 group-hover:text-neutral-400">advance the live level counter</div>
               </button>
 
               <button
@@ -181,7 +178,7 @@ export function CommandMenu({
                   <RefreshCw className="h-3.5 w-3.5 text-red-500 animate-spin" /> Purge & Reboot Database
                 </div>
                 <div className="text-[9px] text-neutral-600 font-mono lowercase mt-1 normal-case leading-normal">
-                  fully flushes local Dexie storage cache and reinstalls standard video editing sample records.
+                  fully flushes local Dexie storage cache and restores a clean zeroed workspace.
                 </div>
               </button>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db, seedDatabaseIfEmpty } from './db';
+import { db, removeLegacyDemoData, CLEAN_GAMIFICATION_STATE } from './db';
 import { ToastProvider, useToast } from './components/ToastContext';
 import { DashboardOverview } from './components/DashboardOverview';
 import { ClientVault } from './components/ClientVault';
@@ -116,12 +116,12 @@ export function AppContent() {
 
   // Auto query gamification row
   const gamificationState = useLiveQuery(() => db.gamification.toArray(), []);
-  const currentStat = gamificationState?.[0] ?? { id: 1, currentLevel: 1, currentXp: 0, dailyStreak: 0 };
+  const currentStat = gamificationState?.[0] ?? CLEAN_GAMIFICATION_STATE;
 
   useEffect(() => {
     async function init() {
       try {
-        await seedDatabaseIfEmpty();
+        await removeLegacyDemoData();
         setDbSeeded(true);
       } catch (err) {
         console.error('Failed to initialize local Dexie database:', err);
@@ -149,7 +149,7 @@ export function AppContent() {
     try {
       const current = (await db.gamification.get(1)) ?? {
         id: 1,
-        currentLevel: 1,
+        currentLevel: 0,
         currentXp: 0,
         dailyStreak: 0,
         updatedAt: Date.now()
@@ -234,12 +234,12 @@ export function AppContent() {
           <div className="h-8 w-8 bg-[#c4ff0e]/10 border border-[#c4ff0e]/30 flex items-center justify-center rounded">
             <Disc className="h-4 w-4 text-[#c4ff0e] animate-spin shrink-0" />
           </div>
-          <div>
-            <div className="text-[9px] font-bold text-neutral-500 tracking-[0.45em] uppercase leading-none">
+            <div>
+              <div className="text-[9px] font-bold text-neutral-500 tracking-[0.45em] uppercase leading-none">
               NERV_COGNITIVE // OS
-            </div>
-            <h1 className="text-sm font-black text-[#d7dbe3] tracking-widest mt-1 uppercase">
-              FREELANCE VIDEO PROJECT HUD
+              </div>
+            <h1 className="text-sm text-[#d7dbe3] mt-1 uppercase font-ivyproxa-light">
+              FreelanceOS
             </h1>
           </div>
         </div>

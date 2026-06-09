@@ -635,7 +635,7 @@ export function ClientVault({
           <Folder className="h-10 w-10 text-neutral-600 mx-auto mb-3" />
           <h2 className="text-lg font-bold text-neutral-300 uppercase">Vault Offline</h2>
           <p className="text-xs text-neutral-500 mt-1 max-w-sm mx-auto uppercase tracking-wide">
-            Zero active directories or client registers logged. Execute quick COMMAND below to seed sample assets.
+            Zero active directories or client registers logged. Use the quick command panel to create your first client.
           </p>
         </div>
       )}

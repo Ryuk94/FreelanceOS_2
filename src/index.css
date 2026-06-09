@@ -6,6 +6,7 @@
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
   --font-serif: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-ivyproxa-light: 'IvyProxa Light', 'IvyProxa', 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 html,
@@ -25,6 +26,12 @@ body {
   letter-spacing: 0.05em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.font-ivyproxa-light {
+  font-family: var(--font-ivyproxa-light);
+  font-weight: 300;
+  letter-spacing: 0.12em;
 }
 
 /* Custom terminal scanlines overlay and neon themes */

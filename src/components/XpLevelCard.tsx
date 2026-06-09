@@ -5,7 +5,7 @@ import { Trophy, Compass } from 'lucide-react';
 
 const DEFAULT_GAMIFICATION = {
   id: 1,
-  currentLevel: 1,
+  currentLevel: 0,
   currentXp: 0,
   dailyStreak: 0,
 };
