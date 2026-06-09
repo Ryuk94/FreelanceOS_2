@@ -410,12 +410,12 @@ export function AppContent() {
       </main>
 
       {/* Terminal Footer status marquee */}
-      <footer className="fixed bottom-0 left-0 right-0 h-8 bg-black/95 border-t border-neutral-900 px-6 flex items-center justify-between text-[10px] text-neutral-600 font-mono z-30 select-none">
-        <div className="flex items-center gap-4">
-          <span className="text-[#c4ff0e] animate-pulse">● PILOT RATINGS LIVE FEED</span>
-          <span className="hidden md:inline">SYSTEM: STABLE // OPERATIONAL SECTOR INT_A_08</span>
+      <footer className="fixed bottom-0 left-0 right-0 h-auto sm:h-8 bg-black/95 border-t border-neutral-900 px-3 sm:px-6 py-1.5 sm:py-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-4 text-[9px] sm:text-[10px] text-neutral-600 font-mono z-30 select-none overflow-hidden">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0 w-full sm:w-auto">
+          <span className="block max-w-full truncate whitespace-nowrap text-[#c4ff0e] animate-pulse flex-shrink-0">? PILOT RATINGS LIVE FEED</span>
+          <span className="hidden md:block min-w-0 truncate whitespace-nowrap">SYSTEM: STABLE // OPERATIONAL SECTOR INT_A_08</span>
         </div>
-        <div className="truncate pl-4">
+        <div className="w-full sm:w-auto min-w-0 truncate whitespace-nowrap pl-0 sm:pl-4">
           CURRENT MISSION: SOLVING PROJECT REV CHECKS TO LEVEL UP OVERLORD XP RATINGS (+15 XP)
         </div>
       </footer>
@@ -437,3 +437,4 @@ export default function App() {
     </ToastProvider>
   );
 }
+
